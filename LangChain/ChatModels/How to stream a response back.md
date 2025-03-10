@@ -3,6 +3,8 @@
 
 # 🚀 How to stream a response back
 
+## 💡 Why Streaming?
+
 Experience real-time, piece-by-piece text generation that enhances interactivity and user engagement.
 
 **Example**:
