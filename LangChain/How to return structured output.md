@@ -1,4 +1,4 @@
-# Returning Structured Data from a Model
+# How to  Return Structured Data from a Model
 
 ## 🚀 Introduction
 When working with AI models, it's useful to structure the output into a predictable format. This ensures that the responses are easy to parse and use in applications.
@@ -70,7 +70,17 @@ Sometimes, we need the model to return different structured outputs based on the
 
 ```python
 from typing import Union
+from typing import Optional
+from pydantic import BaseModel, Field
 
+class Joke(BaseModel):
+    """Joke to tell user."""
+    setup: str = Field(description="The setup of the joke")
+    punchline: str = Field(description="The punchline to the joke")
+    rating: Optional[int] = Field(
+        default=None, description="How funny the joke is, from 1 to 10"
+    )
+    
 class ConversationalResponse(BaseModel):
     """Respond in a conversational manner. Be kind and helpful."""
     response: str = Field(description="A conversational response to the user's query")
